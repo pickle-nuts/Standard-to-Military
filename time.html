@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		/*
+		-Military Hour is 24 Hour system
+		-Standard Hour is 12 Hour system
+
+		- Create a function that converts 12 to 24
+		- Identify any time in the PM range is to be 12 onwards (ex; 1 is 13, 5 is 17, etc)
+		*/
+
+		function timeConvert(time) {
+		    var PM = time.match('PM') ? true : false
+		    
+		    time = time.split(':')
+		    var min = time[1]
+		    
+		    if (PM) {
+		        var hour = 12 + parseInt(time[0],10)
+		        var sec = time[2].replace('PM', '')
+		    } else {
+		        var hour = time[0]
+		        var sec = time[2].replace('AM', '')       
+		    }
+		    
+		   return hour + ':' + min + ':' + sec
+		}
+
+		console.log(timeConvert('05:48:30PM'));
+
+		console.log(timeConvert('03:35:00AM')); 
+	</script>
+	<title>Time Converter</title>
+</head>
+<body>
+
+</body>
+</html>
